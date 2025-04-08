@@ -37,8 +37,8 @@ jupyter kernelspec remove sysml -f > /dev/null 2>&1 || true
 conda install "jupyter-sysml-kernel=$SYSML_VERSION" python=3.* jupyterlab=3.* graphviz=2.* nodejs="<17" -c conda-forge -y
 
 echo "--- Step 4: Installing JupyterLab SysML extension ---"
-jupyter labextension uninstall @systems-modeling/jupyterlab-sysml > /dev/null 2>&1 || true
-jupyter labextension install "@systems-modeling/jupyterlab-sysml@$SYSML_VERSION"
+# jupyter labextension uninstall @systems-modeling/jupyterlab-sysml > /dev/null 2>&1 || true
+# jupyter labextension install "@systems-modeling/jupyterlab-sysml@$SYSML_VERSION"
 
 echo "--- Step 5: Customizing JupyterLab ---"
 python3 "$(dirname $0)/install.py"

@@ -36,16 +36,16 @@ where java
 if errorlevel 1 (
     echo Java is not installed. Please install Java and re-run.
     goto :error
-)
+33)
 call java -version || goto :error
 
 echo --- Step 3: Installing Jupyter SysML kernel and dependencies ---
 call jupyter kernelspec remove sysml -f >nul 2>&1
 call conda install "jupyter-sysml-kernel=%SYSML_VERSION%" python=3.* jupyterlab=3.* graphviz=2.* nodejs="<17" -c conda-forge -y || goto:error
 
-echo --- Step 4: Installing JupyterLab SysML extension ---
-call jupyter labextension uninstall @systems-modeling/jupyterlab-sysml
-call jupyter labextension install "@systems-modeling/jupyterlab-sysml@%SYSML_VERSION%" || goto:error
+echo --- Step 4: NOT Installing JupyterLab SysML extension ---
+:: call jupyter labextension uninstall @systems-modeling/jupyterlab-sysml
+:: call jupyter labextension install "@systems-modeling/jupyterlab-sysml@%SYSML_VERSION%" || goto:error
 
 
 echo --- Step 5: Customizing JupyterLab ---
